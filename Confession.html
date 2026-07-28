@@ -1,247 +1,286 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Do you love me?</title>
-<style>
-  :root{
-    --pink-bg: #ffd6e7;
-    --pink-deep: #ff8fb3;
-    --red-btn: #ff4d6d;
-    --red-btn-dark: #e0334f;
-    --cream: #fff6f2;
-    --text-dark: #5c2a3a;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Do you love me?</title>
+    <style>
+      :root {
+        --pink-bg: #ffd6e7;
+        --pink-deep: #ff8fb3;
+        --red-btn: #ff4d6d;
+        --red-btn-dark: #e0334f;
+        --cream: #fff6f2;
+        --text-dark: #5c2a3a;
+      }
 
-  * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
 
-  html, body {
-    height: 100%;
-    margin: 0;
-    overflow: hidden;
-  }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
 
-  body {
-    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Trebuchet MS', sans-serif;
-    background: radial-gradient(circle at 50% 20%, var(--pink-bg), #ffc1d9 70%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
+      body {
+        font-family:
+          "Comic Sans MS", "Chalkboard SE", "Trebuchet MS", sans-serif;
+        background: radial-gradient(
+          circle at 50% 20%,
+          var(--pink-bg),
+          #ffc1d9 70%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
 
-  .scene {
-    position: relative;
-    width: 100%;
-    max-width: 480px;
-    padding: 40px 24px;
-    text-align: center;
-  }
+      .scene {
+        position: relative;
+        width: 100%;
+        max-width: 480px;
+        padding: 40px 24px;
+        text-align: center;
+      }
 
-  .critters {
-    font-size: 90px;
-    line-height: 1;
-    margin-bottom: 8px;
-    animation: sway 2.4s ease-in-out infinite;
-    user-select: none;
-  }
+      .critters {
+        font-size: 90px;
+        line-height: 1;
+        margin-bottom: 8px;
+        animation: sway 2.4s ease-in-out infinite;
+        -webkit-user-select: none;
+        user-select: none;
+      }
 
-  @keyframes sway {
-    0%, 100% { transform: rotate(-3deg) translateY(0); }
-    50% { transform: rotate(3deg) translateY(-6px); }
-  }
+      @keyframes sway {
+        0%,
+        100% {
+          transform: rotate(-3deg) translateY(0);
+        }
+        50% {
+          transform: rotate(3deg) translateY(-6px);
+        }
+      }
 
-  .bubble {
-    display: inline-block;
-    background: var(--cream);
-    border-radius: 20px;
-    padding: 6px 16px;
-    font-size: 22px;
-    margin-bottom: 18px;
-    box-shadow: 0 3px 0 rgba(0,0,0,0.08);
-    color: var(--text-dark);
-  }
+      .bubble {
+        display: inline-block;
+        background: var(--cream);
+        border-radius: 20px;
+        padding: 6px 16px;
+        font-size: 22px;
+        margin-bottom: 18px;
+        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.08);
+        color: var(--text-dark);
+      }
 
-  h1 {
-    font-size: clamp(28px, 6vw, 40px);
-    color: var(--text-dark);
-    margin: 0 0 36px;
-    text-shadow: 0 2px 0 #fff9;
-  }
+      h1 {
+        font-size: clamp(28px, 6vw, 40px);
+        color: var(--text-dark);
+        margin: 0 0 36px;
+        text-shadow: 0 2px 0 #fff9;
+      }
 
-  .buttons {
-    position: relative;
-    height: 140px;
-  }
+      .buttons {
+        position: relative;
+        height: 140px;
+      }
 
-  button {
-    font-family: inherit;
-    font-size: 20px;
-    font-weight: bold;
-    border: none;
-    border-radius: 999px;
-    padding: 16px 34px;
-    cursor: pointer;
-    color: white;
-    box-shadow: 0 5px 0 rgba(0,0,0,0.15);
-    transition: transform 0.12s ease, top 0.18s ease, left 0.18s ease;
-  }
+      button {
+        font-family: inherit;
+        font-size: 20px;
+        font-weight: bold;
+        border: none;
+        border-radius: 999px;
+        padding: 16px 34px;
+        cursor: pointer;
+        color: white;
+        box-shadow: 0 5px 0 rgba(0, 0, 0, 0.15);
+        transition:
+          transform 0.12s ease,
+          top 0.18s ease,
+          left 0.18s ease;
+      }
 
-  button:active {
-    transform: translateY(3px);
-    box-shadow: 0 2px 0 rgba(0,0,0,0.15);
-  }
+      button:active {
+        transform: translateY(3px);
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+      }
 
-  #yesBtn {
-    background: var(--red-btn);
-    position: relative;
-    z-index: 2;
-  }
-  #yesBtn:hover { background: var(--red-btn-dark); }
+      #yesBtn {
+        background: var(--red-btn);
+        position: relative;
+        z-index: 2;
+      }
+      #yesBtn:hover {
+        background: var(--red-btn-dark);
+      }
 
-  #noBtn {
-    background: #b0b0b0;
-    position: absolute;
-    top: 60px;
-    left: calc(50% + 70px);
-    transform: translateX(-50%);
-    z-index: 2;
-  }
+      #noBtn {
+        background: #b0b0b0;
+        position: absolute;
+        top: 60px;
+        left: calc(50% + 70px);
+        transform: translateX(-50%);
+        z-index: 2;
+      }
 
-  /* growing yes button as no shrinks */
-  #yesBtn.grown { transform: scale(1.15); }
+      /* growing yes button as no shrinks */
+      #yesBtn.grown {
+        transform: scale(1.15);
+      }
 
-  .result {
-    display: none;
-    text-align: center;
-  }
+      .result {
+        display: none;
+        text-align: center;
+      }
 
-  .result.show { display: block; animation: pop 0.4s ease; }
+      .result.show {
+        display: block;
+        animation: pop 0.4s ease;
+      }
 
-  @keyframes pop {
-    0% { transform: scale(0.6); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-  }
+      @keyframes pop {
+        0% {
+          transform: scale(0.6);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
 
-  .result .critters { font-size: 110px; animation: bounce 0.6s ease infinite alternate; }
+      .result .critters {
+        font-size: 110px;
+        animation: bounce 0.6s ease infinite alternate;
+      }
 
-  @keyframes bounce {
-    0% { transform: translateY(0) rotate(-2deg); }
-    100% { transform: translateY(-14px) rotate(2deg); }
-  }
+      @keyframes bounce {
+        0% {
+          transform: translateY(0) rotate(-2deg);
+        }
+        100% {
+          transform: translateY(-14px) rotate(2deg);
+        }
+      }
 
-  .result p {
-    font-size: 24px;
-    color: var(--text-dark);
-    margin-top: 8px;
-  }
+      .result p {
+        font-size: 24px;
+        color: var(--text-dark);
+        margin-top: 8px;
+      }
 
-  .confetti {
-    position: fixed;
-    top: -20px;
-    font-size: 20px;
-    pointer-events: none;
-    animation: fall linear forwards;
-  }
+      .confetti {
+        position: fixed;
+        top: -20px;
+        font-size: 20px;
+        pointer-events: none;
+        animation: fall linear forwards;
+      }
 
-  @keyframes fall {
-    to { transform: translateY(110vh) rotate(360deg); opacity: 0.3; }
-  }
-</style>
-</head>
-<body>
+      @keyframes fall {
+        to {
+          transform: translateY(110vh) rotate(360deg);
+          opacity: 0.3;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scene" id="question">
+      <div class="critters">🐻🐼</div>
+      <div class="bubble">皮? 🤍</div>
+      <h1>Do you love me?</h1>
 
-  <div class="scene" id="question">
-    <div class="critters">🐻🐼</div>
-    <div class="bubble">皮? 🤍</div>
-    <h1>Do you love me?</h1>
-
-    <div class="buttons">
-      <button id="yesBtn">Yes</button>
-      <button id="noBtn">No</button>
+      <div class="buttons">
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+      </div>
     </div>
-  </div>
 
-  <div class="scene result" id="result">
-    <div class="critters">🐻💕🐼</div>
-    <p id="resultText">Yay! I knew it. 🥰</p>
-  </div>
+    <div class="scene result" id="result">
+      <div class="critters">🐻💕🐼</div>
+      <p id="resultText">Yay! I knew it. 🥰</p>
+    </div>
 
-<script>
-  const yesBtn = document.getElementById('yesBtn');
-  const noBtn = document.getElementById('noBtn');
-  const question = document.getElementById('question');
-  const result = document.getElementById('result');
-  const resultText = document.getElementById('resultText');
+    <script>
+      const yesBtn = document.getElementById("yesBtn");
+      const noBtn = document.getElementById("noBtn");
+      const question = document.getElementById("question");
+      const result = document.getElementById("result");
+      const resultText = document.getElementById("resultText");
 
-  const teases = [
-    "Nice try 😏",
-    "Nope, can't catch me!",
-    "Not so fast...",
-    "Try again 💨",
-    "Almost! 😝",
-    "So close!"
-  ];
-  let dodge = 0;
+      const teases = [
+        "Nice try 😏",
+        "Nope, can't catch me!",
+        "Not so fast...",
+        "Try again 💨",
+        "Almost! 😝",
+        "So close!",
+      ];
+      let dodge = 0;
 
-  function moveNoButton() {
-    const container = question.querySelector('.buttons');
-    const bounds = container.getBoundingClientRect();
-    const btnW = noBtn.offsetWidth;
-    const btnH = noBtn.offsetHeight;
+      function moveNoButton() {
+        const container = question.querySelector(".buttons");
+        const bounds = container.getBoundingClientRect();
+        const btnW = noBtn.offsetWidth;
+        const btnH = noBtn.offsetHeight;
 
-    const maxX = bounds.width - btnW;
-    const maxY = bounds.height - btnH;
+        const maxX = bounds.width - btnW;
+        const maxY = bounds.height - btnH;
 
-    const newX = Math.max(0, Math.floor(Math.random() * maxX));
-    const newY = Math.max(0, Math.floor(Math.random() * maxY));
+        const newX = Math.max(0, Math.floor(Math.random() * maxX));
+        const newY = Math.max(0, Math.floor(Math.random() * maxY));
 
-    noBtn.style.left = newX + 'px';
-    noBtn.style.top = newY + 'px';
-    noBtn.style.transform = 'none';
+        noBtn.style.left = newX + "px";
+        noBtn.style.top = newY + "px";
+        noBtn.style.transform = "none";
 
-    dodge++;
-    noBtn.textContent = teases[Math.min(dodge - 1, teases.length - 1)];
+        dodge++;
+        noBtn.textContent = teases[Math.min(dodge - 1, teases.length - 1)];
 
-    // grow the yes button a little each dodge, capped
-    const scale = Math.min(1.6, 1 + dodge * 0.06);
-    yesBtn.style.transform = `scale(${scale})`;
-  }
+        // grow the yes button a little each dodge, capped
+        const scale = Math.min(1.6, 1 + dodge * 0.06);
+        yesBtn.style.transform = `scale(${scale})`;
+      }
 
-  noBtn.addEventListener('mouseover', moveNoButton);
-  noBtn.addEventListener('click', moveNoButton); // in case it gets tapped on mobile
-  noBtn.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    moveNoButton();
-  });
+      noBtn.addEventListener("mouseover", moveNoButton);
+      noBtn.addEventListener("click", moveNoButton); // in case it gets tapped on mobile
+      noBtn.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        moveNoButton();
+      });
 
-  function launchConfetti() {
-    const emojis = ['💖','💕','🎉','✨','💗'];
-    for (let i = 0; i < 40; i++) {
-      const piece = document.createElement('div');
-      piece.className = 'confetti';
-      piece.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-      piece.style.left = Math.random() * 100 + 'vw';
-      piece.style.animationDuration = (Math.random() * 2 + 2) + 's';
-      piece.style.fontSize = (14 + Math.random() * 16) + 'px';
-      document.body.appendChild(piece);
-      setTimeout(() => piece.remove(), 4200);
-    }
-  }
+      function launchConfetti() {
+        const emojis = ["💖", "💕", "🎉", "✨", "💗"];
+        for (let i = 0; i < 40; i++) {
+          const piece = document.createElement("div");
+          piece.className = "confetti";
+          piece.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+          piece.style.left = Math.random() * 100 + "vw";
+          piece.style.animationDuration = Math.random() * 2 + 2 + "s";
+          piece.style.fontSize = 14 + Math.random() * 16 + "px";
+          document.body.appendChild(piece);
+          setTimeout(() => piece.remove(), 4200);
+        }
+      }
 
-  yesBtn.addEventListener('click', () => {
-    question.style.display = 'none';
-    result.classList.add('show');
-    if (dodge > 8) {
-      resultText.textContent = "Finally! You made me work for that 😩💕";
-    } else if (dodge > 2) {
-      resultText.textContent = "Knew you'd say yes eventually 😏💖";
-    } else {
-      resultText.textContent = "Yay! I knew it. 🥰";
-    }
-    launchConfetti();
-  });
-</script>
-
-</body>
+      yesBtn.addEventListener("click", () => {
+        question.style.display = "none";
+        result.classList.add("show");
+        if (dodge > 8) {
+          resultText.textContent = "Finally! You made me work for that 😩💕";
+        } else if (dodge > 2) {
+          resultText.textContent = "Knew you'd say yes eventually 😏💖";
+        } else {
+          resultText.textContent = "Yay! I knew it. 🥰";
+        }
+        launchConfetti();
+      });
+    </script>
+  </body>
 </html>
